@@ -1,5 +1,6 @@
-﻿#include <iostream>
+#include <iostream>
 #include <Windows.h>
+#include <string>
 
 using namespace std;
 
@@ -13,23 +14,23 @@ char* rus(const char* text)
 class ges
 {
 private:
-    int district = 0;
+    string district = "-";
     int number = 0;
     int residents = 0;
     int payment = 0;
     int res_paid = 0;
 public:
-    ges(int nd = 0, int nn = 0, int nr = 0, int np = 0)
+    ges(string nd = "-", int nn = 0, int nr = 0, int np = 0)
     {
         district = nd;
         number = nn;
         residents = nr;
         payment = np;
     }
-    int set_district()
+    string set_district()
     {
-        int newd;
-        cout << rus("Введите номер района") << endl;
+        string newd;
+        cout << rus("Введите район") << endl;
         cin >> newd;
         district = newd;
         return district;
@@ -83,7 +84,7 @@ public:
 
 int main()
 {
-    ges ges1(2, 3, 150, 5000);
+    ges ges1("Primorsky", 3, 150, 5000);
     ges1.set_res_paid();
     ges1.print_info();
     cout << endl;
